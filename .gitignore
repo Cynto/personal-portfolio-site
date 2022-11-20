@@ -5,6 +5,10 @@
 /.pnp
 /.idea
 .pnp.js
+.pnp.cjs
+.pnp.loader.mjs
+.yarnrc.yml
+.yarn
 
 # testing
 /coverage
@@ -35,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# db
+/pb_data
