@@ -1,0 +1,46 @@
+$color-primary: #242927;
+$color-secondary: #ae1a1a;
+$mediumScreen: 768px;
+$largeScreen: 1024px;
+$extraLargeScreen: 1200px;
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 100vh;
+  border-bottom: 4px solid $color-secondary;
+
+  ul {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    list-style: none;
+    padding: 15px;
+
+    li {
+      a {
+        text-decoration: none;
+        font-size: 1.3rem;
+        transition: color 0.2s ease-in-out;
+
+        &:hover {
+          color: $color-secondary;
+          transition: color 0.2s ease-in-out;
+        }
+      }
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    color: white;
+    background-color: $color-primary;
+  }
+  @media (max-width: $largeScreen) {
+    justify-content: flex-end;
+    ul {
+      justify-content: flex-end;
+    }
+  }
+}
