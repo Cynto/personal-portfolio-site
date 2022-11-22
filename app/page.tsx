@@ -1,9 +1,9 @@
-const HomePage = () => {
-	return (
-		<div>
-			<h1>Home Page </h1>
-		</div>
-	);
-}
+import HomeSection from './(components)/HomeSection';
 
-export default HomePage;
+export default function FullPage() {
+  return (
+    <div>
+      <HomeSection />
+    </div>
+  );
+}
