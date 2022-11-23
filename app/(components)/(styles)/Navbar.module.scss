@@ -8,7 +8,7 @@ $extraLargeScreen: 1200px;
   display: flex;
   justify-content: center;
   position: sticky;
-  top: 100vh;
+  top: 0;
   border-bottom: 4px solid $color-secondary;
 
   ul {
