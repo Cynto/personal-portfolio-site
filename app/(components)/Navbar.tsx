@@ -6,9 +6,7 @@ import Link from 'next/link';
 import { Squash as Hamburger } from 'hamburger-react';
 import useWindowProperties from '../../hooks/useWindowProperties';
 
-const cuprum = Cuprum({
-  subsets: ['latin'],
-});
+const cuprum = Cuprum();
 
 export default function Navbar() {
   const { orientation } = useWindowProperties();

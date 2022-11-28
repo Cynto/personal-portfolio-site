@@ -2,12 +2,8 @@ import styles from './(styles)/HomeSection.module.scss';
 import { Alegreya, Cuprum } from '@next/font/google';
 import HomeBackground from './HomeBackground';
 
-const cuprum = Cuprum({
-  subsets: ['latin'],
-});
-const alegreya = Alegreya({
-  subsets: ['latin'],
-});
+const cuprum = Cuprum();
+const alegreya = Alegreya();
 
 const HomeSection = () => {
   return (
