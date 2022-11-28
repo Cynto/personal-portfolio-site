@@ -7,9 +7,11 @@ $extraLargeScreen: 1200px;
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   position: sticky;
   top: 0;
   border-bottom: 4px solid $color-secondary;
+  padding: 15px;
 
   ul {
     width: 50%;
@@ -17,12 +19,11 @@ $extraLargeScreen: 1200px;
     justify-content: center;
     gap: 1.5rem;
     list-style: none;
-    padding: 15px;
 
     li {
       a {
         text-decoration: none;
-        font-size: 1.3rem;
+        font-size: 1.4vw;
         transition: color 0.2s ease-in-out;
 
         &:hover {
@@ -41,6 +42,23 @@ $extraLargeScreen: 1200px;
     justify-content: flex-end;
     ul {
       justify-content: flex-end;
+      li {
+        a {
+          font-size: 1.8vw;
+        }
+      }
+    }
+  }
+
+  @media (orientation: portrait) {
+    ul {
+      width: 100%;
+      padding: 15px;
+      li {
+        a {
+          font-size: 2.5vw;
+        }
+      }
     }
   }
 }
