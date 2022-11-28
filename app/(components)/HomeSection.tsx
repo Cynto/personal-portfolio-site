@@ -1,3 +1,4 @@
+'use client';
 import styles from './(styles)/HomeSection.module.scss';
 import { Alegreya, Cuprum } from '@next/font/google';
 import HomeBackground from './HomeBackground';
@@ -9,12 +10,22 @@ const HomeSection = () => {
   return (
     <>
       <HomeBackground />
-      <div className={styles.homeContainer}>
+      <div className={styles.homeContainer} id="home">
         <h2 className={alegreya.className}>
           Hello there, I&apos;m <span>Luca Garavello</span>. <br />
           I&apos;m a full-stack web developer.
         </h2>
-        <button type={'button'} className={cuprum.className}>
+        <button
+          type={'button'}
+          className={cuprum.className}
+          onClick={() => {
+            const portfolio = document.getElementById('portfolio');
+
+            if (portfolio) {
+              portfolio.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}
+        >
           <span>View my portfolio </span>
           <svg viewBox="0 0 24 24">
             <path
