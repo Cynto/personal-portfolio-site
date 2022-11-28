@@ -1,5 +1,74 @@
+$color-primary: #242927;
+$color-secondary: #ae1a1a;
+$mobileScreen: 768px;
+$mediumScreen: 1024px;
+$LargeScreen: 1200px;
+$extraLargeScreen: 1400px;
+
 .homeContainer {
   height: 100vh;
   position: relative;
-  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 500;
+
+    span {
+      color: $color-secondary;
+    }
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+    gap: 0.8rem;
+    border: 3px solid $color-primary;
+    cursor: pointer;
+    padding: 0.7rem 1.2rem 0.7rem 1.5rem;
+    font-size: 1.3vw;
+    color: black;
+    background-color: rgba(36, 41, 39, 0);
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    svg {
+      width: 1.1rem;
+      height: 100%;
+      display: flex;
+
+      transform: rotate(0);
+      transition: transform 0.2s;
+    }
+    &:hover {
+      color: $color-secondary;
+      background-color: rgba(36, 41, 39, 1);
+      transition: all 0.2s ease-in-out;
+
+      svg {
+        transform: rotate(90deg);
+        transition: transform 0.2s;
+      }
+    }
+  }
+  @media (max-width: $mediumScreen) {
+    button {
+      font-size: 2.5vw;
+    }
+  }
+  @media (orientation: portrait) {
+    h2 {
+      font-size: 5.5vw;
+    }
+    button {
+      font-size: 3.7vw;
+
+      svg {
+        width: 2.5rem;
+      }
+    }
+  }
 }
