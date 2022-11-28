@@ -32,6 +32,9 @@ $extraLargeScreen: 1200px;
           transition: color 0.2s ease-in-out;
         }
       }
+      .active {
+        color: $color-secondary;
+      }
     }
   }
 
