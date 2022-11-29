@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-head-element */
-import './globals.css';
+import './globals.scss';
 import './cssReset.css';
 
 export default function RootLayout({

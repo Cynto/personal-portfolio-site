@@ -6,6 +6,20 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
+body::-webkit-scrollbar {
+  position: absolute;
+  background: #242927;
+  width: 10px;
+  opacity: 1%;
+  padding: 3px;
+}
+body::-webkit-scrollbar-track {
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 9999px;
+  border: 4px solid #555;
+}
 
 a {
   color: inherit;
