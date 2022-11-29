@@ -10,8 +10,8 @@ export default function FullPage() {
       <HomeSection />
       <div>
         <Navbar />
-        <AboutSection />
         <PortfolioSection />
+        <AboutSection />
         <ContactSection />
       </div>
     </div>
