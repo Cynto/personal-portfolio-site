@@ -11,8 +11,8 @@ export default function Navbar() {
   const { orientation } = useWindowProperties();
   const [currentlyActive, setCurrentlyActive] = useState({
     home: true,
-    about: false,
     portfolio: false,
+    about: false,
     contact: false,
   });
 
@@ -28,12 +28,12 @@ export default function Navbar() {
           home:
             homeElement.getBoundingClientRect().top < 100 &&
             homeElement.getBoundingClientRect().bottom > 100,
-          about:
-            aboutElement.getBoundingClientRect().top < 100 &&
-            aboutElement.getBoundingClientRect().bottom > 100,
           portfolio:
             portfolioElement.getBoundingClientRect().top < 100 &&
             portfolioElement.getBoundingClientRect().bottom > 100,
+          about:
+            aboutElement.getBoundingClientRect().top < 100 &&
+            aboutElement.getBoundingClientRect().bottom > 100,
           contact:
             contactElement.getBoundingClientRect().top < 100 &&
             contactElement.getBoundingClientRect().bottom > 100,
@@ -43,6 +43,60 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [homeElement, aboutElement, portfolioElement, contactElement]);
+
+  // add wheel event listener to scroll to the next section
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      if (e.deltaY > 0) {
+        if (currentlyActive.home) {
+          console.log('hi');
+          portfolioElement?.scrollIntoView({ behavior: 'smooth' });
+        } else if (currentlyActive.portfolio) {
+          aboutElement?.scrollIntoView({ behavior: 'smooth' });
+        } else if (currentlyActive.about) {
+          contactElement?.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else if (e.deltaY < 0) {
+        if (currentlyActive.portfolio) {
+          homeElement?.scrollIntoView({ behavior: 'smooth' });
+        } else if (currentlyActive.about) {
+          portfolioElement?.scrollIntoView({ behavior: 'smooth' });
+        } else if (currentlyActive.contact) {
+          aboutElement?.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    };
+    window.addEventListener('wheel', handleWheel, { passive: false });
+    return () => window.removeEventListener('wheel', handleWheel);
+  });
+
+  // add keydown event listener to scroll to the next section
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        if (currentlyActive.home) {
+          portfolioElement?.scrollIntoView({ behavior: 'smooth' });
+        } else if (currentlyActive.portfolio) {
+          aboutElement?.scrollIntoView({ behavior: 'smooth' });
+        } else if (currentlyActive.about) {
+          contactElement?.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (currentlyActive.portfolio) {
+          homeElement?.scrollIntoView({ behavior: 'smooth' });
+        } else if (currentlyActive.about) {
+          portfolioElement?.scrollIntoView({ behavior: 'smooth' });
+        } else if (currentlyActive.contact) {
+          aboutElement?.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  });
 
   return (
     <nav className={styles.navbar}>
@@ -63,19 +117,7 @@ export default function Navbar() {
               HOME
             </button>{' '}
           </li>
-          <li>
-            <button
-              className={currentlyActive.about ? styles.active : ''}
-              role="button"
-              onClick={() => {
-                if (aboutElement) {
-                  aboutElement.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-            >
-              ABOUT
-            </button>
-          </li>
+
           <li>
             <button
               className={currentlyActive.portfolio ? styles.active : ''}
@@ -87,6 +129,19 @@ export default function Navbar() {
               }}
             >
               PORTFOLIO
+            </button>
+          </li>
+          <li>
+            <button
+              className={currentlyActive.about ? styles.active : ''}
+              role="button"
+              onClick={() => {
+                if (aboutElement) {
+                  aboutElement.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
+              ABOUT
             </button>
           </li>
           <li>
