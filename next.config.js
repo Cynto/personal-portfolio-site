@@ -13,6 +13,15 @@ const nextConfig = {
       },
     ],
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'upload.wikimedia.org',
+        pathname: '/wikipedia/commons/thumb/**',
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;
