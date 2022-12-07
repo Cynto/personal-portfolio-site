@@ -2,18 +2,20 @@ import HomeSection from './(components)/HomeSection';
 import Navbar from './(components)/Navbar';
 import AboutSection from './(components)/AboutSection';
 import PortfolioSection from './(components)/PortfolioSection';
+import SkillsSection from './(components)/SkillsSection';
 import ContactSection from './(components)/ContactSection';
 
 export default function FullPage() {
   return (
     <div>
       <HomeSection />
-      <div>
+      <main className="main-section-containers">
         <Navbar />
         <PortfolioSection />
+        <SkillsSection />
         <AboutSection />
         <ContactSection />
-      </div>
+      </main>
     </div>
   );
 }
