@@ -35,6 +35,11 @@ body {
         margin-top: 10px;
       }
     }
+    @media (orientation: portrait) {
+      h2 {
+        font-size: 7.5vw;
+      }
+    }
   }
 }
 body::-webkit-scrollbar {
