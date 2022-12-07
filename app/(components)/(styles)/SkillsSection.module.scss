@@ -11,20 +11,6 @@ $extraLargeScreen: 1200px;
   text-align: center;
   padding-top: 100px;
 
-  h2 {
-    font-size: 2.7rem;
-    margin-bottom: 20px;
-    font-weight: 600;
-
-    &:after {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 5px;
-      background-color: $color-secondary;
-      margin-top: 10px;
-    }
-  }
   h3 {
     font-size: 1.5rem;
     margin-bottom: 20px;
@@ -80,5 +66,27 @@ $extraLargeScreen: 1200px;
     flex-direction: column;
 
     align-items: center;
+  }
+  @media (orientation: portrait) {
+    h3 {
+      font-size: 4vw;
+    }
+    .skillsContainer {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
+      .skill {
+        font-size: 3vw;
+        .imageContainer {
+          width: 100px;
+          height: 100px;
+        }
+      }
+    }
+    .miscContainer {
+      .skillsContainer {
+        justify-content: center;
+      }
+    }
   }
 }
