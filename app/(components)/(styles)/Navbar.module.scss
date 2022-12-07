@@ -12,6 +12,7 @@ $extraLargeScreen: 1200px;
   top: 0;
   border-bottom: 4px solid $color-secondary;
   padding: 15px;
+  z-index: 100;
 
   ul {
     width: 50%;
