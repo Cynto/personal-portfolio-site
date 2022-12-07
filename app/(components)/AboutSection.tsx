@@ -12,11 +12,11 @@ export default function AboutSection() {
       <div className={styles.aboutMe}>
         <h3 className={cuprum.className}>A little bit about me</h3>
 
-        <p>
+        <p data-testid="para">
           I am a full stack developer with a passion for creating beautiful,
           user friendly, fast, and secure web applications.
         </p>
-        <p>
+        <p data-testid="para">
           I prefer working with the backend, but I am very comfortable and
           capable at working with the frontend as well.
         </p>
