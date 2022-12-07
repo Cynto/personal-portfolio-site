@@ -1,4 +1,5 @@
 'use client';
+
 import { useEffect, useState } from 'react';
 import styles from './(styles)/Navbar.module.scss';
 import { Cuprum } from '@next/font/google';
@@ -12,6 +13,7 @@ export default function Navbar() {
   const [currentlyActive, setCurrentlyActive] = useState({
     home: true,
     portfolio: false,
+    skills: false,
     about: false,
     contact: false,
   });
@@ -20,10 +22,17 @@ export default function Navbar() {
   const aboutElement = document.getElementById('about');
   const portfolioElement = document.getElementById('portfolio');
   const contactElement = document.getElementById('contact');
+  const skillsElement = document.getElementById('skills');
 
   useEffect(() => {
     const handleScroll = () => {
-      if (homeElement && aboutElement && portfolioElement && contactElement) {
+      if (
+        homeElement &&
+        aboutElement &&
+        portfolioElement &&
+        contactElement &&
+        skillsElement
+      ) {
         setCurrentlyActive({
           home:
             homeElement.getBoundingClientRect().top < 100 &&
@@ -31,6 +40,9 @@ export default function Navbar() {
           portfolio:
             portfolioElement.getBoundingClientRect().top < 100 &&
             portfolioElement.getBoundingClientRect().bottom > 100,
+          skills:
+            skillsElement?.getBoundingClientRect().top < 100 &&
+            skillsElement?.getBoundingClientRect().bottom > 100,
           about:
             aboutElement.getBoundingClientRect().top < 100 &&
             aboutElement.getBoundingClientRect().bottom > 100,
@@ -42,7 +54,13 @@ export default function Navbar() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [homeElement, aboutElement, portfolioElement, contactElement]);
+  }, [
+    homeElement,
+    aboutElement,
+    portfolioElement,
+    contactElement,
+    skillsElement,
+  ]);
 
   // add wheel event listener to scroll to the next section
   useEffect(() => {
@@ -50,9 +68,10 @@ export default function Navbar() {
       e.preventDefault();
       if (e.deltaY > 0) {
         if (currentlyActive.home) {
-          console.log('hi');
           portfolioElement?.scrollIntoView({ behavior: 'smooth' });
         } else if (currentlyActive.portfolio) {
+          skillsElement?.scrollIntoView({ behavior: 'smooth' });
+        } else if (currentlyActive.skills) {
           aboutElement?.scrollIntoView({ behavior: 'smooth' });
         } else if (currentlyActive.about) {
           contactElement?.scrollIntoView({ behavior: 'smooth' });
@@ -60,8 +79,10 @@ export default function Navbar() {
       } else if (e.deltaY < 0) {
         if (currentlyActive.portfolio) {
           homeElement?.scrollIntoView({ behavior: 'smooth' });
-        } else if (currentlyActive.about) {
+        } else if (currentlyActive.skills) {
           portfolioElement?.scrollIntoView({ behavior: 'smooth' });
+        } else if (currentlyActive.about) {
+          skillsElement?.scrollIntoView({ behavior: 'smooth' });
         } else if (currentlyActive.contact) {
           aboutElement?.scrollIntoView({ behavior: 'smooth' });
         }
@@ -79,6 +100,8 @@ export default function Navbar() {
         if (currentlyActive.home) {
           portfolioElement?.scrollIntoView({ behavior: 'smooth' });
         } else if (currentlyActive.portfolio) {
+          skillsElement?.scrollIntoView({ behavior: 'smooth' });
+        } else if (currentlyActive.skills) {
           aboutElement?.scrollIntoView({ behavior: 'smooth' });
         } else if (currentlyActive.about) {
           contactElement?.scrollIntoView({ behavior: 'smooth' });
@@ -87,8 +110,10 @@ export default function Navbar() {
         e.preventDefault();
         if (currentlyActive.portfolio) {
           homeElement?.scrollIntoView({ behavior: 'smooth' });
-        } else if (currentlyActive.about) {
+        } else if (currentlyActive.skills) {
           portfolioElement?.scrollIntoView({ behavior: 'smooth' });
+        } else if (currentlyActive.about) {
+          skillsElement?.scrollIntoView({ behavior: 'smooth' });
         } else if (currentlyActive.contact) {
           aboutElement?.scrollIntoView({ behavior: 'smooth' });
         }
@@ -117,7 +142,6 @@ export default function Navbar() {
               HOME
             </button>{' '}
           </li>
-
           <li>
             <button
               className={currentlyActive.portfolio ? styles.active : ''}
@@ -131,6 +155,20 @@ export default function Navbar() {
               PORTFOLIO
             </button>
           </li>
+          <li>
+            <button
+              className={currentlyActive.skills ? styles.active : ''}
+              role="button"
+              onClick={() => {
+                if (skillsElement) {
+                  skillsElement.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
+              SKILLS
+            </button>
+          </li>
+
           <li>
             <button
               className={currentlyActive.about ? styles.active : ''}
