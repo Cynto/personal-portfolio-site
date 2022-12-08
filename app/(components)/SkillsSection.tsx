@@ -1,9 +1,9 @@
 import styles from './(styles)/SkillsSection.module.scss';
 import Image from 'next/image';
-import { Cuprum } from '@next/font/google';
+import { Alegreya, Cuprum } from '@next/font/google';
 
 const cuprum = Cuprum();
-
+const alegreya = Alegreya();
 async function getSkills() {
   try {
     const res = await fetch(
@@ -22,7 +22,7 @@ export default async function SkillsSection() {
 
   return (
     <section className={styles.skillsSectionContainer} id="skills">
-      <h2 className={cuprum.className}>Skills</h2>
+      <h2 className={alegreya.className}>Skills</h2>
       <div className={styles.frontAndBackContainer}>
         <div>
           <h3 className={cuprum.className}>Frontend</h3>
