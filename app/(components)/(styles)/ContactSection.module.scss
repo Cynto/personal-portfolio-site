@@ -1,3 +1,48 @@
+$color-primary: #171a1a;
+$color-secondary: #ae1a1a;
+$mediumScreen: 768px;
+$largeScreen: 1024px;
+$extraLargeScreen: 1200px;
+
 .contactContainer {
-  height: 100vh;
+  .contactContent {
+    text-align: center;
+    h3 {
+      font-size: 1.5rem;
+
+      font-weight: 400;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2px;
+      margin-top: 20px;
+
+      text-align: start;
+
+      label {
+        background: darken($color-primary, 3%);
+
+        input,
+        textarea {
+          color: #7f7f7f;
+          width: 100%;
+          overflow-wrap: break-word;
+          padding: 12px;
+        }
+        textarea {
+          resize: none;
+          height: 100px;
+        }
+      }
+      button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        border: 1px solid red;
+        width: min-content;
+        justify-self: end;
+      }
+    }
+  }
 }
