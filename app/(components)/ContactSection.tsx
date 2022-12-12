@@ -1,5 +1,6 @@
 import styles from './(styles)/ContactSection.module.scss';
 import { Alegreya, Cuprum } from '@next/font/google';
+import ContactForm from './ContactForm';
 
 const cuprum = Cuprum();
 const alegreya = Alegreya();
@@ -14,28 +15,8 @@ export default function ContactSection() {
           just want to say hi? <br /> Either way, I&apos;d love to hear from
           you!
         </h3>
-        <form className={cuprum.className}>
-          <label htmlFor="name">
-            <input type="text" name="name" id="name" placeholder="Name" />
-          </label>
-          <label htmlFor="email">
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Your Email"
-            />
-          </label>
-          <label htmlFor="message">
-            <textarea
-              name="message"
-              id="message"
-              placeholder="Your Message"
-              wrap="hard"
-            />
-          </label>
-          <button type="submit">SUBMIT</button>
-        </form>
+
+        <ContactForm />
       </div>
     </section>
   );
