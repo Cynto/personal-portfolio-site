@@ -12,6 +12,7 @@ export default function FullPage() {
       <main className="main-section-containers">
         <Navbar />
         <PortfolioSection />
+        {/* @ts-expect-error Server Component */}
         <SkillsSection />
         <AboutSection />
         <ContactSection />
