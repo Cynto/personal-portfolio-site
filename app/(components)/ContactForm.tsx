@@ -37,7 +37,15 @@ export default function ContactForm() {
   return (
     <form className={cuprum.className} onSubmit={handleSubmit}>
       <label htmlFor="name">
-        <input type="text" name="name" id="name" placeholder="Name" required />
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Name"
+          required
+          minLength={3}
+          maxLength={50}
+        />
       </label>
       <label htmlFor="email">
         <input
@@ -46,6 +54,8 @@ export default function ContactForm() {
           id="email"
           placeholder="Your Email"
           required
+          minLength={3}
+          maxLength={50}
         />
       </label>
       <label htmlFor="subject">
@@ -55,6 +65,8 @@ export default function ContactForm() {
           id="subject"
           placeholder="Subject"
           required
+          minLength={3}
+          maxLength={50}
         />
       </label>
       <label htmlFor="message">
@@ -64,6 +76,8 @@ export default function ContactForm() {
           placeholder="Your Message"
           wrap="hard"
           required
+          minLength={3}
+          maxLength={900}
         />
       </label>
       <button type="submit">SUBMIT</button>
