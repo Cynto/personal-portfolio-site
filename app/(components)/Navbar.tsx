@@ -18,11 +18,19 @@ export default function Navbar() {
     contact: false,
   });
 
-  const homeElement = document.getElementById('home');
-  const aboutElement = document.getElementById('about');
-  const portfolioElement = document.getElementById('portfolio');
-  const contactElement = document.getElementById('contact');
-  const skillsElement = document.getElementById('skills');
+  let homeElement: HTMLElement | null = null;
+  let portfolioElement: HTMLElement | null = null;
+  let skillsElement: HTMLElement | null = null;
+  let aboutElement: HTMLElement | null = null;
+  let contactElement: HTMLElement | null = null;
+
+  if (typeof window !== 'undefined') {
+    homeElement = document.getElementById('home');
+    portfolioElement = document.getElementById('portfolio');
+    skillsElement = document.getElementById('skills');
+    aboutElement = document.getElementById('about');
+    contactElement = document.getElementById('contact');
+  }
 
   useEffect(() => {
     const handleScroll = () => {
