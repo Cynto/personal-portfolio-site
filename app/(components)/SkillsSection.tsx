@@ -4,10 +4,10 @@ import { Alegreya, Cuprum } from '@next/font/google';
 
 const cuprum = Cuprum();
 const alegreya = Alegreya();
-async function getSkills() {
+export async function getSkills() {
   try {
     const res = await fetch(
-      'http://127.0.0.1:8090/api/collections/skills/records'
+      `${process.env.DB_HOST}/api/collections/skills/records`
     );
 
     return await res.json();
@@ -15,7 +15,6 @@ async function getSkills() {
     console.log(err);
   }
 }
-
 export default async function SkillsSection() {
   const skillsData = await getSkills();
   const skills = skillsData?.items ? skillsData.items : [];
