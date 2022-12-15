@@ -1,6 +1,7 @@
 import styles from './(styles)/ContactSection.module.scss';
 import { Alegreya, Cuprum } from '@next/font/google';
 import ContactForm from './ContactForm';
+import Footer from './Footer';
 
 const cuprum = Cuprum();
 const alegreya = Alegreya();
@@ -18,6 +19,7 @@ export default function ContactSection() {
 
         <ContactForm />
       </div>
+      <Footer />
     </section>
   );
 }
