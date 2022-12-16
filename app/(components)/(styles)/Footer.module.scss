@@ -1,4 +1,75 @@
+$color-primary: #242927;
+$color-secondary: #ae1a1a;
+$linkedin-color: #0976b4;
+
+$github-color: #4183c4;
+@keyframes initialAnim {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(200%);
+  }
+}
+
+@keyframes anim {
+  from {
+    transform: translateY(-200%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
 .footer {
   width: 100%;
-  padding: 100px;
+  height: 230px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  background-color: $color-primary;
+  margin-top: auto;
+  border-top: 4px solid $color-secondary;
+  .socialsContainer {
+    display: flex;
+    gap: 1.5rem;
+    .social {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      overflow: hidden;
+      height: 55px;
+      width: 55px;
+      border-radius: 2px;
+      background-color: darken($color-primary, 10%);
+      transition: background-color 0.3s;
+      a {
+        width: 55px;
+        height: 55px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        i {
+          font-size: 30px;
+          color: white;
+          cursor: pointer;
+        }
+        &:hover {
+          animation: initialAnim 0.3s ease-in-out, anim 0.3s 0.3s ease-in-out;
+        }
+      }
+      &:hover {
+        background-color: $color-secondary;
+        transition: background-color 0.3s;
+      }
+    }
+  }
+  p {
+    span {
+      color: $color-secondary;
+    }
+  }
 }
