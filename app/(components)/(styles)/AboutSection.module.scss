@@ -8,7 +8,6 @@ $extraLargeScreen: 1200px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
 
   h3 {
     font-size: 2.5rem;
@@ -18,6 +17,11 @@ $extraLargeScreen: 1200px;
   .aboutMe {
     text-align: center;
     max-width: 700px;
+
+    img {
+      width: 250px;
+      height: auto;
+    }
 
     p {
       font-size: 1.7rem;
