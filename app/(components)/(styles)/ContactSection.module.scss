@@ -7,6 +7,7 @@ $extraLargeScreen: 1200px;
 .contactContainer {
   .contactContent {
     text-align: center;
+    padding: 0 20px 30px;
     h3 {
       font-size: 1.5rem;
 
@@ -57,6 +58,11 @@ $extraLargeScreen: 1200px;
       p {
         text-align: center;
       }
+    }
+  }
+  @media (orientation: portrait) {
+    .contactContent {
+      padding: 0 20px 10px;
     }
   }
 }

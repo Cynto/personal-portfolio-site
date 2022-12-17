@@ -69,22 +69,20 @@ $extraLargeScreen: 1200px;
   }
   @media (orientation: portrait) {
     h3 {
-      font-size: 4vw;
+      font-size: 5vw;
     }
     .skillsContainer {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-
+      grid-template-columns: 1fr 1fr;
       .skill {
-        font-size: 3vw;
+        font-size: 4vw;
         .imageContainer {
-          width: 100px;
-          height: 100px;
         }
       }
     }
     .miscContainer {
       .skillsContainer {
+        display: flex;
         justify-content: center;
       }
     }
