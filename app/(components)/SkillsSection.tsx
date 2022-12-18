@@ -1,13 +1,21 @@
 import styles from './(styles)/SkillsSection.module.scss';
 import Image from 'next/image';
 import { Alegreya, Cuprum } from '@next/font/google';
+import AuthData from '../(interfaces)/AuthData.interface';
 
 const cuprum = Cuprum();
 const alegreya = Alegreya();
-export async function getSkills() {
+export async function getSkills(authData: AuthData) {
   try {
     const res = await fetch(
-      `${process.env.DB_HOST}/api/collections/skills/records`
+      `${process.env.DB_HOST}/api/collections/skills/records`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${authData.token}`,
+        },
+      }
     );
 
     return await res.json();
@@ -15,8 +23,12 @@ export async function getSkills() {
     console.log(err);
   }
 }
-export default async function SkillsSection() {
-  const skillsData = await getSkills();
+export default async function SkillsSection({
+  authData,
+}: {
+  authData: AuthData;
+}) {
+  const skillsData = await getSkills(authData);
   const skills = skillsData?.items ? skillsData.items : [];
 
   return (
