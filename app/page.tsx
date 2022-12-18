@@ -4,8 +4,21 @@ import AboutSection from './(components)/AboutSection';
 import PortfolioSection from './(components)/PortfolioSection';
 import SkillsSection from './(components)/SkillsSection';
 import ContactSection from './(components)/ContactSection';
+import PocketBase from 'pocketbase';
 
-export default function FullPage() {
+const loginToPocketbase = async () => {
+  const pb = new PocketBase(process.env.DB_HOST);
+
+  return await pb.admins.authWithPassword(
+    // @ts-ignore
+    process.env.PB_EMAIL,
+    process.env.PB_PASSWORD
+  );
+};
+
+export default async function FullPage() {
+  const authData = await loginToPocketbase();
+
   return (
     <div>
       <HomeSection />
@@ -13,7 +26,7 @@ export default function FullPage() {
         <Navbar />
         <PortfolioSection />
         {/* @ts-expect-error Server Component */}
-        <SkillsSection />
+        <SkillsSection authData={authData} />
         <AboutSection />
         <ContactSection />
       </main>
