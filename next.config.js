@@ -55,6 +55,11 @@ const nextConfig = {
         hostname: 'git-scm.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'personal-portfolio-db.fly.dev',
+        pathname: '/**',
+      },
     ],
   },
 };
