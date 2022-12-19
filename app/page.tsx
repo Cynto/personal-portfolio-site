@@ -24,7 +24,8 @@ export default async function FullPage() {
       <HomeSection />
       <main className="main-section-containers">
         <Navbar />
-        <PortfolioSection />
+        {/* @ts-expect-error Server Component */}
+        <PortfolioSection authData={authData} />
         {/* @ts-expect-error Server Component */}
         <SkillsSection authData={authData} />
         <AboutSection />
