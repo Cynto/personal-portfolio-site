@@ -1,3 +1,70 @@
+$color-primary: #242927;
+$color-secondary: #ae1a1a;
+
 .portfolioSection {
-  height: 100vh;
+  .projectsContainer {
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr;
+    grid-template-rows: 500px;
+    gap: 20px;
+    width: 100vw;
+    overflow: hidden;
+    padding: 0 20px;
+    .project {
+      .imageContainer {
+        position: relative;
+        height: 100%;
+        img {
+          width: 100%;
+        }
+        .overlay {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          padding: 40px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          z-index: 99;
+          opacity: 0;
+
+          background-color: $color-primary;
+          transition: opacity 0.3s ease-in-out,
+            background-color 0.3s ease-in-out;
+
+          &:hover {
+            opacity: 1 !important;
+            transition: all 0.2s ease-in-out;
+          }
+
+          .overlayText {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
+
+            h3 {
+              font-size: 1.5rem;
+              font-weight: 400;
+              text-align: center;
+            }
+
+            p {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 5px;
+              justify-content: center;
+              color: $color-secondary;
+
+              span {
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
