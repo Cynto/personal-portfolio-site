@@ -45,6 +45,9 @@ $color-secondary: #ae1a1a;
             gap: 20px;
             align-items: center;
 
+            * {
+              cursor: default;
+            }
             h3 {
               font-size: 1.5rem;
               font-weight: 400;
