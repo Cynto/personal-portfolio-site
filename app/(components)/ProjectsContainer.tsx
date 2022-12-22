@@ -18,7 +18,7 @@ export default function ProjectsContainer({
   const { orientation } = useWindowProperties();
 
   useEffect(() => {
-    if (orientation === 'portrait') {
+    if (orientation === 'portrait' && !projectsArr[0].featured) {
       // swap the first two projects
       const firstProject = projectsArr[0];
       const secondProject = projectsArr[1];
@@ -27,7 +27,8 @@ export default function ProjectsContainer({
       newProjectsArr[1] = firstProject;
       setProjectsArr(newProjectsArr);
     }
-  }, [orientation, projectsArr]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [orientation]);
 
   return (
     <>
@@ -71,7 +72,14 @@ export default function ProjectsContainer({
                       </p>
                     </div>
                     <div className={styles.overlayLinks}>
-                      <a href={project.github_repository}></a>
+                      <button>
+                        <a href={project.github_repository}>View on Github</a>
+                      </button>
+                      {project.live_site !== '' && (
+                        <button>
+                          <a href={project.live_site}>View Live Demo</a>
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>
