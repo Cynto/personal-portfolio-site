@@ -3,9 +3,10 @@
 import styles from './(styles)/PortfolioSection.module.scss';
 import Image from 'next/image';
 import { Cuprum } from '@next/font/google';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Project from '../(interfaces)/Project.interface';
 import SwitchProjectButtons from './SwitchProjectButtons';
+import useWindowProperties from '../..//hooks/useWindowProperties';
 
 const cuprum = Cuprum();
 export default function ProjectsContainer({
@@ -14,12 +15,25 @@ export default function ProjectsContainer({
   projects: Project[];
 }) {
   const [projectsArr, setProjectsArr] = useState(projects);
+  const { orientation } = useWindowProperties();
+
+  useEffect(() => {
+    if (orientation === 'portrait') {
+      // swap the first two projects
+      const firstProject = projectsArr[0];
+      const secondProject = projectsArr[1];
+      const newProjectsArr = [...projectsArr];
+      newProjectsArr[0] = secondProject;
+      newProjectsArr[1] = firstProject;
+      setProjectsArr(newProjectsArr);
+    }
+  }, [orientation, projectsArr]);
 
   return (
     <>
       <div className={styles.projectsContainer}>
         {projectsArr[0] &&
-          projectsArr.map((project: any) => {
+          projectsArr.map((project: Project) => {
             return (
               <div className={styles.project} key={project.id}>
                 <div className={styles.imageContainer}>
@@ -30,7 +44,10 @@ export default function ProjectsContainer({
                       quality={100}
                       sizes={' 100vw, 50vw'}
                       fill={true}
-                      style={{ objectFit: 'cover' }}
+                      style={{
+                        objectFit: 'cover',
+                        objectPosition: 'top center',
+                      }}
                     />
                   )}
                   <div
