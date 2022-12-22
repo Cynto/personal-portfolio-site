@@ -84,6 +84,12 @@ $color-secondary: #ae1a1a;
         @media (prefers-color-scheme: dark) {
           fill: #fff;
         }
+        transition: fill 0.3s ease-in-out;
+
+        &:hover {
+          fill: $color-secondary;
+          transition: fill 0.3s ease-in-out;
+        }
         path {
         }
       }
