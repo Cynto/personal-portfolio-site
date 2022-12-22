@@ -1,5 +1,9 @@
 $color-primary: #242927;
 $color-secondary: #ae1a1a;
+$mobileScreen: 768px;
+$mediumScreen: 1024px;
+$LargeScreen: 1200px;
+$extraLargeScreen: 1400px;
 
 .portfolioSection {
   display: grid;
@@ -24,11 +28,12 @@ $color-secondary: #ae1a1a;
           position: absolute;
           height: 100%;
           width: 100%;
-          padding: 40px;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
+          padding: 100px 20px;
+          display: grid;
+          grid-template-rows: 1fr 1fr;
+          align-items: start;
+          gap: 60px;
+
           z-index: 99;
           opacity: 0;
 
@@ -74,6 +79,43 @@ $color-secondary: #ae1a1a;
               }
               p {
                 font-size: 5vw;
+              }
+            }
+          }
+          .overlayLinks {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            button {
+              display: flex;
+              align-items: center;
+              font-weight: bolder;
+              gap: 0.8rem;
+              border: 3px solid darken($color-primary, 5%);
+              cursor: pointer;
+              padding: 0.8rem 1.1rem;
+              font-size: 0.75rem;
+              color: white;
+              background-color: rgba(36, 41, 39, 0);
+              transition: background-color 0.2s ease-in-out,
+                color 0.2s ease-in-out;
+
+              &:hover {
+                color: $color-secondary;
+                background-color: darken(rgba(36, 41, 39, 1), 5%);
+                transition: all 0.2s ease-in-out;
+              }
+            }
+            @media (min-width: $mediumScreen) {
+              button {
+                font-size: 1.1rem;
+              }
+            }
+            @media (orientation: portrait) {
+              button {
+                font-size: 4.3vw;
               }
             }
           }
