@@ -4,6 +4,7 @@ $color-secondary: #ae1a1a;
 .portfolioSection {
   display: grid;
   justify-items: center;
+
   .projectsContainer {
     display: grid;
     grid-template-columns: 2fr 3fr 2fr;
@@ -67,6 +68,14 @@ $color-secondary: #ae1a1a;
                 text-align: center;
               }
             }
+            @media (orientation: portrait) {
+              h3 {
+                font-size: 7vw;
+              }
+              p {
+                font-size: 5vw;
+              }
+            }
           }
         }
       }
@@ -92,6 +101,18 @@ $color-secondary: #ae1a1a;
         }
         path {
         }
+      }
+    }
+  }
+  @media (orientation: portrait) {
+    .projectsContainer {
+      grid-template-columns: 1fr;
+      grid-auto-columns: 0;
+      grid-template-rows: 50vh;
+      grid-auto-flow: column;
+
+      > :not(:first-child) {
+        display: none;
       }
     }
   }
