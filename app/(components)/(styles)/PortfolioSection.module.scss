@@ -2,6 +2,8 @@ $color-primary: #242927;
 $color-secondary: #ae1a1a;
 
 .portfolioSection {
+  display: grid;
+  justify-items: center;
   .projectsContainer {
     display: grid;
     grid-template-columns: 2fr 3fr 2fr;
@@ -69,5 +71,24 @@ $color-secondary: #ae1a1a;
         }
       }
     }
+  }
+  .switchProjectButtons {
+    display: flex;
+    gap: 20px;
+    button {
+      cursor: pointer;
+
+      svg {
+        height: 50px;
+        width: 50px;
+        @media (prefers-color-scheme: dark) {
+          fill: #fff;
+        }
+        path {
+        }
+      }
+    }
+  }
+  @media (prefers-color-scheme: dark) {
   }
 }
