@@ -33,7 +33,7 @@ export default async function SkillsSection({
 
   return (
     <section className={styles.skillsSectionContainer} id="skills">
-      <h2 className={alegreya.className}>Skills</h2>
+      <h2 className={alegreya.className}>SKILLS</h2>
       <div className={styles.frontAndBackContainer}>
         <div>
           <h3 className={cuprum.className}>Frontend</h3>
