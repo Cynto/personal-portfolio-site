@@ -3,7 +3,6 @@ import { Alegreya } from '@next/font/google';
 import AuthData from '../(interfaces)/AuthData.interface';
 import ProjectsContainer from './ProjectsContainer';
 
-
 const alegreya = Alegreya();
 
 const getProjects = async (authData: AuthData) => {
@@ -19,14 +18,21 @@ const getProjects = async (authData: AuthData) => {
       }
     );
     const data = await res.json();
-    const projects = data?.items ? data.items.map((project: any) => {
-      return {
-        ...project,
-        screenshot: project.screenshot !== '' ? `${process.env.DB_HOST}/api/files/${project.collectionName}/${project.id}/${project.screenshot}` : ''
-      }
-    }) : [];
+    const projects = data?.items
+      ? data.items.map((project: any) => {
+          return {
+            ...project,
+            screenshot:
+              project.screenshot !== ''
+                ? `${process.env.DB_HOST}/api/files/${project.collectionName}/${project.id}/${project.screenshot}`
+                : '',
+          };
+        })
+      : [];
 
-    const featuredIndex = projects.findIndex((project: any) => project.featured === true);
+    const featuredIndex = projects.findIndex(
+      (project: any) => project.featured
+    );
     const secondProject = projects[1];
     projects[1] = projects[featuredIndex];
     projects[featuredIndex] = secondProject;
@@ -43,7 +49,7 @@ export default async function PortfolioSection({
   const projects = await getProjects(authData);
   return (
     <section className={styles.portfolioSection} id={'portfolio'}>
-      <h2 className={alegreya.className}>Portfolio</h2>
+      <h2 className={alegreya.className}>PORTFOLIO</h2>
       <ProjectsContainer projects={projects} />
     </section>
   );
