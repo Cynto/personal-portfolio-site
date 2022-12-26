@@ -15,17 +15,18 @@ export default function AboutSection() {
         <h3 className={cuprum.className}>A little bit about me</h3>
 
         <p data-testid="para">
-          I am a full stack developer with a passion for creating beautiful,
-          user friendly, fast, and secure web applications.
+          I&apos;m Luca, a full-stack web developer based in the UK.
         </p>
         <p data-testid="para">
-          Although I am full stack developer, my passion lies more within the
-          backend side of developing. This however, does not mean I&apos;m
-          uncomfortable at working on the frontend side of developing. I
-          thoroughly enjoy working with the latest technologies to implement
-          modern APIs and databases. Additionally, I&apos;m a big fan of clean
-          and concise code and I&apos;m always looking for ways to further
-          improve my code.
+          As a full-stack developer, I have a strong foundation in both
+          front-end and back-end technologies. While my passion lies in the
+          backend, where I can dive deep into complex logic and problem-solving,
+          I am also comfortable and proficient in front-end development. I enjoy
+          being able to bridge the gap between the visual design and the
+          underlying technical architecture of a web application. Being able to
+          work on both ends of the stack allows me to have a holistic
+          understanding of the development process and enables me to build
+          well-rounded, dynamic web applications.
         </p>
       </div>
     </section>
