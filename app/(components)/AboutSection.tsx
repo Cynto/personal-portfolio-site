@@ -22,9 +22,10 @@ export default function AboutSection() {
           Although I am full stack developer, my passion lies more within the
           backend side of developing. This however, does not mean I&apos;m
           uncomfortable at working on the frontend side of developing. I
-          thoroughly enjoy working with the latest technology to implement APIs
-          and databases. Additionally, I&apos;m a big fan of clean code and
-          I&apos;m always looking to learn further ways in improving my code.
+          thoroughly enjoy working with the latest technologies to implement
+          modern APIs and databases. Additionally, I&apos;m a big fan of clean
+          and concise code and I&apos;m always looking for ways to further
+          improve my code.
         </p>
       </div>
     </section>
