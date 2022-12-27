@@ -21,7 +21,7 @@ export default function SingleProject({
     image: 3,
     overlay: project.screenshot !== '' ? 2 : 3,
   });
-  const overlayRef = useRef(null)
+  const overlayRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (orientation === 'portrait') {
@@ -41,9 +41,8 @@ export default function SingleProject({
 
 
   useEffect(() => {
-    function handleClickOutside(event) {
-
-      if (overlayRef.current && !overlayRef.current.contains(event.target) && orientation === 'portrait' && elementsZIndex.overlay === 3) {
+    function handleClickOutside(event: MouseEvent) {
+      if (overlayRef.current && !overlayRef.current.contains(event.target as Node) && orientation === 'portrait' && elementsZIndex.overlay === 3) {
         setElementsZIndex({
           image: 3,
           overlay: 2
