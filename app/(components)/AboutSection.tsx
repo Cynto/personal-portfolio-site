@@ -15,7 +15,7 @@ export default function AboutSection() {
         <h3 className={cuprum.className}>A little bit about me</h3>
 
         <p data-testid="para">
-          I&apos;m Luca, a full-stack web developer based in the UK.
+          I&apos;m Luca, a 22 year old full-stack web developer based in the UK.
         </p>
         <p data-testid="para">
           As a full-stack developer, I have a strong foundation in both
