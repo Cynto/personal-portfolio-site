@@ -53,13 +53,14 @@ export default function Navbar() {
             skillsElement?.getBoundingClientRect().bottom > 100,
           about:
             aboutElement.getBoundingClientRect().top < 100 &&
-            aboutElement.getBoundingClientRect().bottom > 100,
+            aboutElement.getBoundingClientRect().bottom > 400,
           contact:
-            contactElement.getBoundingClientRect().top < 100 &&
+            contactElement.getBoundingClientRect().top < 400 &&
             contactElement.getBoundingClientRect().bottom > 100,
         });
       }
     };
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [
@@ -73,25 +74,36 @@ export default function Navbar() {
   // add wheel event listener to scroll to the next section
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
-      e.preventDefault();
       if (e.deltaY > 0) {
         if (currentlyActive.home) {
+          e.preventDefault();
           portfolioElement?.scrollIntoView({ behavior: 'smooth' });
         } else if (currentlyActive.portfolio) {
+          e.preventDefault();
           skillsElement?.scrollIntoView({ behavior: 'smooth' });
         } else if (currentlyActive.skills) {
+          e.preventDefault();
           aboutElement?.scrollIntoView({ behavior: 'smooth' });
         } else if (currentlyActive.about) {
+          e.preventDefault();
           contactElement?.scrollIntoView({ behavior: 'smooth' });
         }
       } else if (e.deltaY < 0) {
         if (currentlyActive.portfolio) {
+          e.preventDefault();
           homeElement?.scrollIntoView({ behavior: 'smooth' });
         } else if (currentlyActive.skills) {
+          e.preventDefault();
           portfolioElement?.scrollIntoView({ behavior: 'smooth' });
         } else if (currentlyActive.about) {
+          e.preventDefault();
           skillsElement?.scrollIntoView({ behavior: 'smooth' });
-        } else if (currentlyActive.contact) {
+        } else if (
+          currentlyActive.contact &&
+          contactElement &&
+          contactElement.getBoundingClientRect().top > 50
+        ) {
+          e.preventDefault();
           aboutElement?.scrollIntoView({ behavior: 'smooth' });
         }
       }
