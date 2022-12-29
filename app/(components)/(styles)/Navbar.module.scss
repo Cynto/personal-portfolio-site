@@ -57,13 +57,40 @@ $extraLargeScreen: 1200px;
 
   @media (orientation: portrait) {
     ul {
-      width: 100%;
       padding: 15px;
+      align-items: center;
+      justify-items: center;
+      grid-template-columns: 1fr;
+      height: 0;
+      width: 0;
+      opacity: 0;
+      display: grid;
+      grid-auto-rows: 0;
+      z-index: -1;
+      overflow: hidden;
+      transform: translateY(-100%);
+      &.active {
+        background-color: $color-primary;
+        border-bottom: 4px solid $color-secondary;
+        grid-auto-rows: auto;
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 82px;
+        height: auto;
+        width: 100%;
+        opacity: 1;
+        z-index: 1;
+        transform: translateY(0);
+        transition: transform 0.3s ease-in-out;
+      }
+
       li {
         button {
-          font-size: 2.5vw;
+          font-size: 5.5vw;
         }
       }
     }
+    align-items: start;
   }
 }
