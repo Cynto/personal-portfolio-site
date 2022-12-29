@@ -17,6 +17,7 @@ export default function Navbar() {
     about: false,
     contact: false,
   });
+  const [menuOpen, setMenuOpen] = useState(false);
 
   let homeElement: HTMLElement | null = null;
   let portfolioElement: HTMLElement | null = null;
@@ -145,77 +146,76 @@ export default function Navbar() {
 
   return (
     <nav className={styles.navbar}>
-      {orientation === 'portrait' ? (
-        <Hamburger size={40} />
-      ) : (
-        <ul className={cuprum.className}>
-          <li>
-            <button
-              className={currentlyActive.home ? styles.active : ''}
-              role="button"
-              onClick={() => {
-                if (homeElement) {
-                  homeElement.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-            >
-              HOME
-            </button>{' '}
-          </li>
-          <li>
-            <button
-              className={currentlyActive.portfolio ? styles.active : ''}
-              role="button"
-              onClick={() => {
-                if (portfolioElement) {
-                  portfolioElement.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-            >
-              PORTFOLIO
-            </button>
-          </li>
-          <li>
-            <button
-              className={currentlyActive.skills ? styles.active : ''}
-              role="button"
-              onClick={() => {
-                if (skillsElement) {
-                  skillsElement.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-            >
-              SKILLS
-            </button>
-          </li>
+      <ul className={`${cuprum.className} ${menuOpen ? styles.active : ''}`}>
+        <li>
+          <button
+            className={currentlyActive.home ? styles.active : ''}
+            role="button"
+            onClick={() => {
+              if (homeElement) {
+                homeElement.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+          >
+            HOME
+          </button>{' '}
+        </li>
+        <li>
+          <button
+            className={currentlyActive.portfolio ? styles.active : ''}
+            role="button"
+            onClick={() => {
+              if (portfolioElement) {
+                portfolioElement.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+          >
+            PORTFOLIO
+          </button>
+        </li>
+        <li>
+          <button
+            className={currentlyActive.skills ? styles.active : ''}
+            role="button"
+            onClick={() => {
+              if (skillsElement) {
+                skillsElement.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+          >
+            SKILLS
+          </button>
+        </li>
 
-          <li>
-            <button
-              className={currentlyActive.about ? styles.active : ''}
-              role="button"
-              onClick={() => {
-                if (aboutElement) {
-                  aboutElement.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-            >
-              ABOUT
-            </button>
-          </li>
-          <li>
-            <button
-              className={currentlyActive.contact ? styles.active : ''}
-              role="button"
-              onClick={() => {
-                if (contactElement) {
-                  contactElement.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-            >
-              CONTACT
-            </button>
-          </li>
-        </ul>
+        <li>
+          <button
+            className={currentlyActive.about ? styles.active : ''}
+            role="button"
+            onClick={() => {
+              if (aboutElement) {
+                aboutElement.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+          >
+            ABOUT
+          </button>
+        </li>
+        <li>
+          <button
+            className={currentlyActive.contact ? styles.active : ''}
+            role="button"
+            onClick={() => {
+              if (contactElement) {
+                contactElement.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+          >
+            CONTACT
+          </button>
+        </li>
+      </ul>
+      {orientation === 'portrait' && (
+        <Hamburger size={40} onToggle={() => setMenuOpen(!menuOpen)} />
       )}
     </nav>
   );
