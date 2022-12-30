@@ -153,6 +153,7 @@ export default function Navbar() {
             role="button"
             onClick={() => {
               if (homeElement) {
+                setMenuOpen(false);
                 homeElement.scrollIntoView({ behavior: 'smooth' });
               }
             }}
@@ -166,6 +167,7 @@ export default function Navbar() {
             role="button"
             onClick={() => {
               if (portfolioElement) {
+                setMenuOpen(false);
                 portfolioElement.scrollIntoView({ behavior: 'smooth' });
               }
             }}
@@ -179,6 +181,7 @@ export default function Navbar() {
             role="button"
             onClick={() => {
               if (skillsElement) {
+                setMenuOpen(false);
                 skillsElement.scrollIntoView({ behavior: 'smooth' });
               }
             }}
@@ -193,6 +196,7 @@ export default function Navbar() {
             role="button"
             onClick={() => {
               if (aboutElement) {
+                setMenuOpen(false);
                 aboutElement.scrollIntoView({ behavior: 'smooth' });
               }
             }}
@@ -206,6 +210,7 @@ export default function Navbar() {
             role="button"
             onClick={() => {
               if (contactElement) {
+                setMenuOpen(false);
                 contactElement.scrollIntoView({ behavior: 'smooth' });
               }
             }}
