@@ -8,6 +8,7 @@ export default interface Project {
   live_site: string;
   github_repository: string;
   built_with: string[];
+  imagePosition: string;
   collectionName: string;
   collectionId: string;
   created: Date;
