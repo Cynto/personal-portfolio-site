@@ -32,10 +32,12 @@ $extraLargeScreen: 1200px;
     }
   }
   .skillsContainer {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     justify-content: center;
+    justify-items: center;
     gap: 20px;
-    width: 90%;
+    width: 40%;
     flex-wrap: wrap;
 
     .skill {
@@ -74,6 +76,7 @@ $extraLargeScreen: 1200px;
     .skillsContainer {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      width: auto;
       .skill {
         font-size: 4vw;
         .imageContainer {
