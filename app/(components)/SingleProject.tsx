@@ -9,19 +9,13 @@ import useWindowProperties from '../../hooks/useWindowProperties';
 
 const cuprum = Cuprum();
 
-export default function SingleProject({
-  project,
-
-}: {
-  project: Project;
-
-}) {
+export default function SingleProject({ project }: { project: Project }) {
   const { orientation } = useWindowProperties();
   const [elementsZIndex, setElementsZIndex] = useState({
     image: 3,
     overlay: project.screenshot !== '' ? 2 : 3,
   });
-  const overlayRef = useRef<HTMLDivElement>(null)
+  const overlayRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (orientation === 'portrait') {
@@ -38,26 +32,28 @@ export default function SingleProject({
     }
   }, [orientation]);
 
-
-
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (overlayRef.current && !overlayRef.current.contains(event.target as Node) && orientation === 'portrait' && elementsZIndex.overlay === 3) {
+      if (
+        overlayRef.current &&
+        !overlayRef.current.contains(event.target as Node) &&
+        orientation === 'portrait' &&
+        elementsZIndex.overlay === 3
+      ) {
         setElementsZIndex({
           image: 3,
-          overlay: 2
-        })
+          overlay: 2,
+        });
       }
     }
 
-    if(overlayRef.current && orientation === 'portrait') {
-      document.addEventListener("click", handleClickOutside);
+    if (overlayRef.current && orientation === 'portrait') {
+      document.addEventListener('click', handleClickOutside);
     }
     return () => {
-
-      document.removeEventListener("click", handleClickOutside);
+      document.removeEventListener('click', handleClickOutside);
     };
-  }, [overlayRef, orientation, elementsZIndex])
+  }, [overlayRef, orientation, elementsZIndex]);
 
   return (
     <div className={styles.project} key={project.id}>
@@ -71,7 +67,7 @@ export default function SingleProject({
             fill={true}
             style={{
               objectFit: 'cover',
-              objectPosition: 'top center',
+              objectPosition: project.imagePosition,
               zIndex: elementsZIndex.image,
             }}
             onClick={() => {
@@ -89,7 +85,8 @@ export default function SingleProject({
               ? {
                   zIndex: elementsZIndex.overlay,
                   opacity:
-                    elementsZIndex.overlay >= elementsZIndex.image || project.screenshot === ''
+                    elementsZIndex.overlay >= elementsZIndex.image ||
+                    project.screenshot === ''
                       ? 1
                       : 0,
                 }
