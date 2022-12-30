@@ -220,7 +220,11 @@ export default function Navbar() {
         </li>
       </ul>
       {orientation === 'portrait' && (
-        <Hamburger size={40} onToggle={() => setMenuOpen(!menuOpen)} />
+        <Hamburger
+          size={40}
+          toggled={menuOpen}
+          onToggle={() => setMenuOpen(!menuOpen)}
+        />
       )}
     </nav>
   );
