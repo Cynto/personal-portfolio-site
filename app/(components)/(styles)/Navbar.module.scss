@@ -56,6 +56,7 @@ $extraLargeScreen: 1200px;
   }
 
   @media (orientation: portrait) {
+    z-index: 4;
     ul {
       padding: 15px;
       align-items: center;
@@ -80,7 +81,7 @@ $extraLargeScreen: 1200px;
         height: auto;
         width: 100%;
         opacity: 1;
-        z-index: 1;
+        z-index: 3;
         transform: translateY(0);
         transition: transform 0.3s ease-in-out;
       }
