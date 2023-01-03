@@ -10,19 +10,20 @@ describe('Navbar', () => {
     expect(screen.getByRole('navigation')).toBeInTheDocument();
   });
 
-  it('should render a list of 4 buttons', async () => {
+  it('should render a list of 5 buttons', async () => {
     await render(<Navbar />);
 
     expect(screen.getByRole('list')).toBeInTheDocument();
-    expect(screen.getAllByRole('listitem')).toHaveLength(4);
-    expect(screen.getAllByRole('button')).toHaveLength(4);
+    expect(screen.getAllByRole('listitem')).toHaveLength(5);
+    expect(screen.getAllByRole('button')).toHaveLength(5);
     expect(screen.getByText('HOME')).toBeInTheDocument();
     expect(screen.getByText('PORTFOLIO')).toBeInTheDocument();
+    expect(screen.getByText('SKILLS')).toBeInTheDocument();
     expect(screen.getByText('ABOUT')).toBeInTheDocument();
     expect(screen.getByText('CONTACT')).toBeInTheDocument();
   });
 
-  it('should render a hamburger menu instead of a ul if the screen is portrait', async () => {
+  it('should render 6 buttons if screen orientation is portrait ', async () => {
     await render(<Navbar />);
 
     await act(async () => {
@@ -34,7 +35,6 @@ describe('Navbar', () => {
       window.dispatchEvent(new Event('resize'));
     });
 
-    expect(screen.getByRole('button')).toBeInTheDocument();
-    expect(screen.queryByRole('list')).not.toBeInTheDocument();
+    expect(screen.getAllByRole('button')).toHaveLength(6);
   });
 });
