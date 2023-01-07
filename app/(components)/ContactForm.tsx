@@ -1,41 +1,20 @@
 'use client';
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { Cuprum } from '@next/font/google';
-
+import { handleSubmit } from './handlers';
 const cuprum = Cuprum();
 
 export default function ContactForm() {
   const [emailSent, setEmailSent] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
-    const { name, email, subject, message } = e.target;
-
-    try {
-      const res = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: name.value,
-          email: email.value,
-          subject: subject.value,
-          text: message.value,
-        }),
-      });
-      const data = await res.json();
-      if (data.error) {
-        return new Error(data.error);
-      } else if (data.success) {
-        setEmailSent(true);
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  };
   return (
-    <form className={cuprum.className} onSubmit={handleSubmit}>
+    <form
+      className={cuprum.className}
+      onSubmit={(e: FormEvent<HTMLFormElement>) =>
+        handleSubmit(e, setEmailSent, setError)
+      }
+    >
       {emailSent ? (
         <p>Message sent successfully!</p>
       ) : (
@@ -43,6 +22,7 @@ export default function ContactForm() {
           <label htmlFor="name">
             <input
               type="text"
+              aria-label="name"
               name="name"
               id="name"
               placeholder="Name"
@@ -54,6 +34,7 @@ export default function ContactForm() {
           <label htmlFor="email">
             <input
               type="email"
+              aria-label="email"
               name="email"
               id="email"
               placeholder="Your Email"
@@ -65,6 +46,7 @@ export default function ContactForm() {
           <label htmlFor="subject">
             <input
               type="text"
+              aria-label="subject"
               name="subject"
               id="subject"
               placeholder="Subject"
@@ -76,6 +58,7 @@ export default function ContactForm() {
           <label htmlFor="message">
             <textarea
               name="message"
+              aria-label="message"
               id="message"
               placeholder="Your Message"
               wrap="hard"
@@ -84,7 +67,11 @@ export default function ContactForm() {
               maxLength={900}
             />
           </label>
-          <button type="submit">SUBMIT</button>
+          <button type="submit" aria-label="submit">
+            SUBMIT
+          </button>
+          <p></p>
+          {error && <p className="error">{error}</p>}
         </>
       )}
     </form>
