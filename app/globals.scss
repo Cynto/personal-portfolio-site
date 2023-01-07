@@ -13,6 +13,9 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
   main {
+    .error {
+      color: $color-secondary;
+    }
     > section {
       padding-top: 100px;
       min-height: 100vh;
