@@ -1,34 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# My Personal Portfolio Site
 
-## Getting Started
+## About
 
-First, run the development server:
+This TypeScript [Next.js](https://nextjs.org/) site was created in order for me to display a few of the different
+projects I've worked on since I started learning how to develop websites.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+You can find the live version of this project [here](https://lucagaravello.com).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This site uses [PocketBase](https://pocketbase.io/) as its backend, to easily store project and skill icons/images.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Sections
+Upon visiting the site, you will encounter the landing page featuring an animated canvas background.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Scrolling down once reveals my portfolio section, showcasing a selection of projects I have worked on during my web development journey.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Continuing to scroll down, you will come across the skills section, which highlights the majority of my technical skills related to web development.
 
-## Learn More
+Another scroll down brings you to the about section, where you can find some information about me.
 
-To learn more about Next.js, take a look at the following resources:
+Lastly, scrolling down one final time presents the contact section, enabling you to directly send me an email through the site. Additionally, you can find my LinkedIn and GitHub links in the footer.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Acknowledgements 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The canvas animation I used on the landing page was taken from [here](https://codepen.io/tmrDevelops/pen/dMdNvy).
 
-## Deploy on Vercel
+## Dependencies
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [Next.js](https://nextjs.org/)
+- [pocketbase](https://pocketbase.io/)
+- [hamburger-react](https://www.npmjs.com/package/hamburger-react)
+- [nodemailer](https://www.npmjs.com/package/nodemailer)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Dev Dependencies 
+- [Jest](https://jestjs.io/)
+- [react-testing-library](https://testing-library.com/docs/react-testing-library/intro/)
+- [dom-testing-library](https://testing-library.com/docs/dom-testing-library/intro/)
+- [user-event](https://testing-library.com/docs/ecosystem-user-event/)
+- [jest-dom](https://testing-library.com/docs/ecosystem-jest-dom/)
+- [jest-environment-jsdom](https://www.npmjs.com/package/jest-environment-jsdom)
+- [node-mocks-http](https://www.npmjs.com/package/node-mocks-http)
+- [prettier](https://prettier.io/)
+- [sass](https://sass-lang.com/)
