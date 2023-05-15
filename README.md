@@ -2,12 +2,11 @@
 
 ## About
 
-This TypeScript [Next.js](https://nextjs.org/) site was created in order for me to display a few of the different
-projects I've worked on since I started learning how to develop websites.
+This TypeScript site, built with [Next.js](https://nextjs.org/) serves as a platform for showcasing a selection of projects I have undertaken throughout my web development journey.
 
-You can find the live version of this project [here](https://lucagaravello.com).
+You can access the live version of this project by clicking [here](https://lucagaravello.com).
 
-This site uses [PocketBase](https://pocketbase.io/) as its backend, to easily store project and skill icons/images.
+To simplify the storage of project and skill icons/images, this site utilizes [PocketBase](https://pocketbase.io/) as its backend.
 
 ## Sections
 Upon visiting the site, you will encounter the landing page featuring an animated canvas background.
