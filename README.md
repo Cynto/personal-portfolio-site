@@ -21,7 +21,8 @@ Lastly, scrolling down one final time presents the contact section, enabling you
 
 ## Acknowledgements 
 
-The canvas animation I used on the landing page was taken from [here](https://codepen.io/tmrDevelops/pen/dMdNvy).
+
+The canvas animation featured on the landing page was sourced from [here](https://codepen.io/tmrDevelops/pen/dMdNvy).
 
 ## Dependencies
 
