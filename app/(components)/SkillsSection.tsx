@@ -2,6 +2,7 @@ import styles from './(styles)/SkillsSection.module.scss';
 import Image from 'next/image';
 import { Alegreya, Cuprum } from '@next/font/google';
 import AuthData from '../(interfaces)/AuthData.interface';
+import Skill from '../(interfaces)/Skill.interface';
 
 const cuprum = Cuprum();
 const alegreya = Alegreya();
@@ -17,8 +18,17 @@ export async function getSkills(authData: AuthData) {
         },
       }
     );
-
-    return await res.json();
+    const data = await res.json();
+    // Add property to each skill that points to the url of the icon
+    const skills = data?.items
+      ? data.items.map((skill: Skill) => {
+          return {
+            ...skill,
+            iconURL: `${process.env.DB_HOST}/api/files/${skill.collectionName}/${skill.id}/${skill.icon}`,
+          };
+        })
+      : [];
+    return await skills;
   } catch (err) {
     console.log(err);
   }
@@ -28,8 +38,7 @@ export default async function SkillsSection({
 }: {
   authData: AuthData;
 }) {
-  const skillsData = await getSkills(authData);
-  const skills = skillsData?.items ? skillsData.items : [];
+  const skills = await getSkills(authData);
 
   return (
     <section className={styles.skillsSectionContainer} id="skills">
@@ -46,7 +55,7 @@ export default async function SkillsSection({
                       {skill.name}
                       <div className={styles.imageContainer}>
                         <Image
-                          src={skill.icon}
+                          src={skill.iconURL}
                           alt={skill.name}
                           width={0}
                           height={0}
@@ -70,7 +79,7 @@ export default async function SkillsSection({
                     {skill.name}
                     <div className={styles.imageContainer}>
                       <Image
-                        src={skill.icon}
+                        src={skill.iconURL}
                         alt={skill.name}
                         width={0}
                         height={0}
@@ -95,7 +104,7 @@ export default async function SkillsSection({
                   {skill.name}
                   <div className={styles.imageContainer}>
                     <Image
-                      src={skill.icon}
+                      src={skill.iconURL}
                       alt={skill.name}
                       width={0}
                       height={0}
